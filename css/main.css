@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    height: 80px;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    background-color: rgb(36 93 130); 
+    border-radius: 10px;
+    margin: 10px 10px;
+    padding: 0;
+}
+.header .name {
+    display: flexbox;
+    font-size: 30px;
+    color: white;
+}
+.game {
+    width: calc(100% - 20px);
+    height: calc(100vh - 80px - 30px);
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 10px 10px;
+}
+.game .parent {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+.game .parent.stopclicking {
+    pointer-events: none;
+}
+.game .parent .son {
+    height: calc(25% - 20px);
+    background-color: rgb(36 93 130);
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 calc(25% - 20px);
+    transition: transform .5s;
+    transform-style: preserve-3d;
+
+}
+.game .parent .son.is-faced {
+    transform: rotateY(180deg);
+}
+.game .parent .son.is-matched {
+    transform: rotateY(180deg);
+}
+.game .parent .son div{
+    color: white;
+    font-size: 50px;
+    height: 100%;
+    width: 100%;
+    
+}
+.game .parent .son .front {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game .parent .son .front::before {
+    content: '?';
+    color: white;
+    font-weight: bold;
+}
+.game .parent .son .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    position: absolute;
+}
+.game .parent .son .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+}
