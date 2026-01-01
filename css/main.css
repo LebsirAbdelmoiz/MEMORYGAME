@@ -5,21 +5,100 @@ body {
     margin: 0;
     padding: 0;
 }
+.startmenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(36 93 130);
+    height: 100%;
+    width: 100%;
+    color: rgb(36 93 130);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+.startmenu.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.startmenu span {
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 20px;
+    background-color: white;
+}
+.endmenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(36 93 130);
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.endmenu.nonhidden {
+    display: flex;
+}
+.endmenu .text1 {
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 10px;
+}
+.endmenu .text2 {
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 10px;
+}
+.endmenu .text2 .timer {
+    display: inline;
+}
+.endmenu .text2 .attempts {
+    display: inline;
+}
+.endmenu span.playagain {
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    color: rgb(36 93 130);
+}
 .header {
     display: flex;
     height: 80px;
     flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-    background-color: rgb(36 93 130); 
+    align-content: center;
+    justify-content: space-between;
+    background-color: rgb(36 93 130);
     border-radius: 10px;
     margin: 10px 10px;
     padding: 0;
+    color: white;
+    padding: 20px;
 }
 .header .name {
-    display: flexbox;
     font-size: 30px;
-    color: white;
+}
+.features {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.features .timer {
+    display: block;
+}
+.features .attempts {
+    display: block;
 }
 .game {
     width: calc(100% - 20px);
@@ -51,9 +130,11 @@ body {
 }
 .game .parent .son.is-faced {
     transform: rotateY(180deg);
+    pointer-events: none;
 }
 .game .parent .son.is-matched {
     transform: rotateY(180deg);
+    pointer-events: none;
 }
 .game .parent .son div{
     color: white;
@@ -86,4 +167,31 @@ body {
     height: 100%;
     text-align: center;
     backface-visibility: hidden;
+}
+@media (max-width: 450px) {
+    .header {
+        display: flex;
+        height: 80px;
+        justify-content: center;
+        background-color: rgb(36 93 130);
+        border-radius: 10px;
+        margin: 10px 10px;
+        padding: 0;
+        color: white;
+        padding: 20px;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .header .features {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .game .parent .son div {
+        font-size: 30px;
+    }
+    .endmenu .text2 {
+        font-size: 20px;
+    }
 }
